@@ -6,13 +6,62 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Shitty HCF Core generator</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulmaswatch/0.6.2/flatly/bulmaswatch.min.css">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </head>
 
 <body>
-	<h1 id="corename">HCF Core Generator</h1>
-	<button id="btn-click">Generate</button>
+	<section class="hero is-dark is-medium is-fullheight">
+		<!-- Start whole navbar + hero -->
+		<!-- Hero head: will stick at the top -->
+		<div class="hero-head">
+			<nav class="navbar">
+				<div class="container">
+					<div class="navbar-brand">
+						<a class="navbar-item">
+							<img src="https://sergivb01.me/assets/img/buis-icon.png" alt="Logo">
+						</a>
+						<span class="navbar-burger burger" data-target="navbarMenuHero11">
+							<span></span>
+							<span></span>
+							<span></span>
+						</span>
+					</div>
+			</nav>
+			</div>
+
+			<!-- Hero content: will be in the middle -->
+			<div class="hero-body">
+				<div class="container has-text-centered">
+					<h1 class="title" id="corename">
+						HCF Core Generator
+					</h1>
+					<h2 class="subtitle" style="margin-top: 5px">
+						<button class="button is-outlined" id="btn-click">Generate</button>
+					</h2>
+				</div>
+			</div>
+
 
 </body>
-<script src="js/script.js"></script>
+<script type="text/javascript">
+	let output = document.getElementById('corename');
+	let btn = document.getElementById('btn-click');
+
+	btn.addEventListener('click', (event) => {
+		output.innerHTML = `${getRandomLetter()}HCF`;
+		event.preventDefault();
+	});
+
+	let alphabet = "abcdefghijklmnopqrstuvwxyz";
+	let getRandomLetter = () => {
+		return alphabet[Math.floor(Math.random() * alphabet.length)];
+	};
+</script>
+<style>
+	* {
+		overflow: hidden;
+	}
+</style>
 
 </html>
