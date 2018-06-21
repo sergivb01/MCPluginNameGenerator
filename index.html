@@ -69,9 +69,22 @@
 	let btn = document.getElementById('btn-click');
 
 	btn.addEventListener('click', (event) => {
-		output.innerHTML = `${getRandomLetter()}HCF`;
+		doThatShit(`${getRandomLetter()}HCF`);
+
 		event.preventDefault();
 	});
+
+	let doThatShit = (word) => {
+		for (let i = 1; i <= word.length; i++) { // ❤️ Grabbed from https://shithcf.com/ ❤️
+			((i) => {
+				setTimeout(() => {
+					var part = word.slice(0, i);
+					for (var j = i; j < word.length; j++) part += String.fromCharCode(Math.random() * 26 + 97);
+					output.innerHTML = part;
+				}, i * 100);
+			})(i);
+		}
+	}
 
 	let alphabet = "abcdefghijklmnopqrstuvwxyz";
 	let getRandomLetter = () => {
